@@ -24,10 +24,4 @@
 			<class name="com.searchmodule.tests.SearchTest" />
 		</classes>
 	</test>
-	<test name="search-test-qa">
-		<parameter name="keyword" value="qa" />
-		<classes>
-			<class name="com.searchmodule.tests.SearchTest" />
-		</classes>
-	</test>
 </suite>
