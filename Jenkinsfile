@@ -1,6 +1,6 @@
 pipeline {
 	environment {
-	    registry = "IL02VLAPP5004.cfrm.dev.local:5000/selenium-docker"
+	    registry = "IL02VLAPP5004.cfrm.dev.local:5000/selenium-docker:latest"
 	  //  registryCredential = 'dockerhub'
 	    dockerImage = 'selenium-docker'
 	  }
@@ -27,8 +27,7 @@ pipeline {
         stage('Build & Push trunk platform image'){
 		steps {
 		  script {
-    		dockerImage.push("${BUILD_NUMBER}")
-			dockerImage.push("latest")
+    		dockerImage.push()
 			}
 		  }	
         }
