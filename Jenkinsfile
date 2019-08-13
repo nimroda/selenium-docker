@@ -1,6 +1,6 @@
 pipeline {
 	environment {
-	    registry = "IL02VLAPP5004.cfrm.dev.local:5000"
+	    registry = "IL02VLAPP5004.cfrm.dev.local:5000/selenium-docker"
 	  //  registryCredential = 'dockerhub'
 	    dockerImage = 'selenium-docker'
 	  }
