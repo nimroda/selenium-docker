@@ -25,8 +25,10 @@ pipeline {
             }
         }
         stage('Build & Push trunk platform image'){
+		  script {
     		dockerImage.push("${BUILD_NUMBER}")
 			dockerImage.push("latest")
+			}
         }
 //        stage('Push Image') {
 //            steps {
