@@ -1,10 +1,10 @@
 pipeline {
 	environment {
-	    registry = "nimo1975/selenium-docker"
-	    registryCredential = 'dockerhub'
-	    dockerImage = ''
+	    registry = "IL02VLAPP5004.cfrm.dev.local:5000/selenium-docker"
+	  //  registryCredential = 'dockerhub'
+	  //  dockerImage = 'selenium-docker'
 	  }
-    agent none
+    agent { label 'DOCKER_SLAVE' }
     stages {
         stage('Build Jar') {
             agent {
@@ -24,15 +24,19 @@ pipeline {
                 }
             }
         }
-        stage('Push Image') {
-            steps {
-                script {
-			        docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
-			        	dockerImage.push("${BUILD_NUMBER}")
-			            dockerImage.push("latest")
-			        }
-                }
-            }
+        stage('Build & Push trunk platform image'){
+    		def testwithdocker = docker.build registry
+    		testwithdocker.push()
         }
+//        stage('Push Image') {
+//            steps {
+//                script {
+//			        docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+//			        	dockerImage.push("${BUILD_NUMBER}")
+//			            dockerImage.push("latest")
+//			        }
+//               }
+//            }
+//        }
     }
 }
