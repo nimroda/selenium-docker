@@ -5,6 +5,7 @@ import java.net.URL;
 
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
@@ -21,24 +22,29 @@ public class BaseTest {
 		// BROWSER ==> chrome / firefox
 		// HUB_HOST ==> IP or hostname
 		
-		String host = "192.168.139.128";
-		DesiredCapabilities dc;
+//		String host = "192.168.139.128";
+//		DesiredCapabilities dc;
+//		
+//		if (System.getProperty("BROWSER") != null && System.getProperty("BROWSER").equalsIgnoreCase("firefox")){
+//			dc = DesiredCapabilities.firefox();
+//		}
+//		else {
+//			dc = DesiredCapabilities.chrome();
+//		}
+//		
+//		if (System.getProperty("HUB_HOST") != null) {
+//			host = System.getProperty("HUB_HOST");
+//		}
+//		
+//		String completeUrl = "http://" + host + ":4444/wd/hub";
+//		// will show test name from testng in zalenium dashboard
+//		dc.setCapability("name", ctx.getCurrentXmlTest().getName());
+//		this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 		
-		if (System.getProperty("BROWSER") != null && System.getProperty("BROWSER").equalsIgnoreCase("firefox")){
-			dc = DesiredCapabilities.firefox();
-		}
-		else {
-			dc = DesiredCapabilities.chrome();
-		}
-		
-		if (System.getProperty("HUB_HOST") != null) {
-			host = System.getProperty("HUB_HOST");
-		}
-		
-		String completeUrl = "http://" + host + ":4444/wd/hub";
-		// will show test name from testng in zalenium dashboard
-		dc.setCapability("name", ctx.getCurrentXmlTest().getName());
-		this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+	  //Uncomment to test locally	
+	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\naviram\\Downloads\\chromedriver_win32\\chromedriver.exe");	
+      this.driver = new ChromeDriver();
+      this.driver.manage().window().maximize();
 	}
 	
 	@AfterTest
