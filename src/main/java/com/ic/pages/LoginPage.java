@@ -26,11 +26,12 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void goToHomePage(String aUser, String aPassword){
+	public HomePage login(String aUser, String aPassword){
 		this.driver.get("http://il02vlapp5000.cfrm.dev.local:30781/InvestigationCenter/");
 		usernameTxt.sendKeys(aUser);
 		passwordTxt.sendKeys(aPassword);
 		loginBtn.click();
+		return new HomePage(driver);
 	}
 	
 //	public void goToHomePage(){
