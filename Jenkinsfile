@@ -15,7 +15,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                	app = docker.build("nimroda/selenium-docker")
+                	app = docker.build("selenium-docker")
                 }
             }
         }
