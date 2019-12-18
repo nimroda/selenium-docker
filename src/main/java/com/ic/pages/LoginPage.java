@@ -27,7 +27,7 @@ public class LoginPage {
 	}
 	
 	public HomePage login(String aUser, String aPassword){
-		this.driver.get("http://il02vlapp5000.cfrm.dev.local:30781/InvestigationCenter/");
+		this.driver.get("http://IL02VLAPP5005.cfrm.dev.local:7780/InvestigationCenter/");
 		usernameTxt.sendKeys(aUser);
 		passwordTxt.sendKeys(aPassword);
 		loginBtn.click();

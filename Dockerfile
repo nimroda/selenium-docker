@@ -15,14 +15,15 @@ ADD target/libs 				     libs
 ADD book-flight-module.xml           book-flight-module.xml
 ADD search-module.xml                search-module.xml
 
-# Adding health check script
-#ADD healthcheck.sh                   healthcheck.sh
+# Adding health check script to make sure hub is in ready state
+# ADD healthcheck.sh                   healthcheck.sh
 RUN wget https://s3.amazonaws.com/selenium-docker/healthcheck/healthcheck.sh
 
 # BROWSER
 # HUB_HOST
 # MODULE
 
+# ENTRYPOINT java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -DBROWSER=$BROWSER -DHUB_HOST=$HUB_HOST org.testng.TestNG $MODULE
 ENTRYPOINT sh healthcheck.sh
 
 
