@@ -15,7 +15,7 @@ public class SearchPage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 	
-	@FindBy(name = "q")
+	@FindBy(id = "search_form_input_homepage")
 	private WebElement searchTxt;
 	
 	@FindBy(id = "search_button_homepage")
