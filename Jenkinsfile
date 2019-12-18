@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'DOCKER_SLAVE' }
+    agent none
     stages {
         stage('Build Jar') {
             agent {
