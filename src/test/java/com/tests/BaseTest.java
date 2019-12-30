@@ -47,6 +47,8 @@ public class BaseTest {
 		else {
 			dc = DesiredCapabilities.chrome();
 			dc.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
+			dc.setCapability("headless", true);
+			dc.setCapability("platform", "LINUX");
 		}
 		
 		if (System.getProperty("HUB_HOST") != null) {
