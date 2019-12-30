@@ -2,9 +2,11 @@ package com.tests;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
@@ -44,6 +46,7 @@ public class BaseTest {
 		}
 		else {
 			dc = DesiredCapabilities.chrome();
+			dc.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
 		}
 		
 		if (System.getProperty("HUB_HOST") != null) {
